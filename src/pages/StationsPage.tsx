@@ -32,9 +32,11 @@ export default function StationsPage() {
       }
     } catch {}
   }
-
   const getStationUrl = useCallback((station: Station) => {
-    return `http://${serverIP}:5174/station/${station.id}`;
+    const customerAppUrl = window.location.hostname.includes('vercel')
+      ? 'https://nexino-printflow-customer.vercel.app'
+      : `http://${serverIP}:5174`;
+    return `${customerAppUrl}/station/${station.id}`;
   }, [serverIP]);
 
   async function downloadQR() {
