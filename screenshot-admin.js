@@ -1,0 +1,22 @@
+const { chromium } = require('playwright');
+(async () => {
+  const browser = await chromium.launch();
+  const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.goto('http://localhost:5175/admin/login');
+  await page.waitForLoadState('networkidle');
+  await page.fill('input[type="text"]', 'admin');
+  await page.fill('input[type="password"]', 'admin123');
+  await page.click('button[type="submit"]');
+  await page.waitForURL('**/dashboard');
+  await page.waitForTimeout(2000);
+  await page.goto('http://localhost:5175/admin/jobs');
+  await page.waitForLoadState('networkidle');
+  await page.waitForTimeout(2000);
+  await page.screenshot({ path: '../test-artifacts/admin-jobs-fixed.png', fullPage: false });
+  await page.goto('http://localhost:5175/admin/stations');
+  await page.waitForLoadState('networkidle');
+  await page.waitForTimeout(2000);
+  await page.screenshot({ path: '../test-artifacts/admin-stations-fixed.png', fullPage: false });
+  await browser.close();
+  console.log('Done');
+})();
