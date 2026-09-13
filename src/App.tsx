@@ -5,6 +5,7 @@ import DashboardPage from "./pages/DashboardPage";
 import StationsPage from "./pages/StationsPage";
 import PrintersPage from "./pages/PrintersPage";
 import JobsPage from "./pages/JobsPage";
+import PricingPage from "./pages/PricingPage";
 import RevenuePage from "./pages/RevenuePage";
 import AlertsPage from "./pages/AlertsPage";
 
@@ -28,6 +29,7 @@ export default function App() {
                 <Route path="/stations" element={<StationsPage />} />
                 <Route path="/printers" element={<PrintersPage />} />
                 <Route path="/jobs" element={<JobsPage />} />
+                <Route path="/pricing" element={<PricingPage />} />
                 <Route path="/revenue" element={<RevenuePage />} />
                 <Route path="/alerts" element={<AlertsPage />} />
                 <Route path="*" element={<Navigate to="/" replace />} />

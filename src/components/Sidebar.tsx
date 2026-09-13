@@ -10,6 +10,7 @@ import {
   LogOut,
   ChevronLeft,
   X,
+  Tag,
 } from "lucide-react";
 import clsx from "clsx";
 
@@ -18,6 +19,7 @@ const navItems = [
   { to: "/stations", icon: MapPin, label: "Stations" },
   { to: "/printers", icon: Printer, label: "Printers" },
   { to: "/jobs", icon: FileText, label: "Jobs" },
+  { to: "/pricing", icon: Tag, label: "Pricing" },
   { to: "/revenue", icon: DollarSign, label: "Revenue" },
   { to: "/alerts", icon: Bell, label: "Alerts" },
 ];
